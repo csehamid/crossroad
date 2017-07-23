@@ -1,0 +1,36 @@
+https://developer.github.com/v4/explorer/
+
+
+
+
+
+
+
+{
+  repository(name: "crossroad", owner: "csehamid") {
+    ref(qualifiedName: "master") {
+      target {
+        ... on Commit {
+          id
+          history(first: 5) {
+            pageInfo {
+              hasNextPage
+            }
+            edges {
+              node {
+                messageHeadline
+                oid
+                message
+                author {
+                  name
+                  email
+                  date
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
